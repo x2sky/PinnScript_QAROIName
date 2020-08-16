@@ -1,0 +1,198 @@
+####################################
+#stdNameList.py
+#create standard library list for the
+#the standardized name as well as its
+#common non standard names
+#
+#Modified:
+#2015 08 Becket Hui
+####################################
+#make sure this file and all other subfiles are stored in script home in the main Script
+##List of organs##
+def organList():
+ """!
+ @brief:
+ @create organ library in format of {standard name : [potential common names (lower case, no space or replaced by underscore)]}
+ @return:
+ :  d: the class library
+ """
+ d = dict()
+ d['AnalCanal'] = ['analcanal','anus']
+ d['A_Pulmonary'] = ['a_pulmonary','apulmonary','arterypulmonary']
+ d['A_Carotid'] = ['a_carotid','acarotid','arterycarotid','carotidartery']
+ d['A_Brachiocephali'] = ['a_brachiocephali','abrachiocephali','arterybrachiocephali','brachiocephaliartery']
+ d['A_Coronary'] = ['a_coronary','acoronary','arterycoronary','coronaryartery']
+ d['A_Subclavicular'] = ['a_subclavicular','asubclavicular','arterysubclavicular','subclavicularartery']
+ d['A_Hypophyseal'] = ['a_hypophyseal','ahypophyseal','arteryhypophyseal','hypophysealartery']
+ d['Aorta'] = ['aorta']
+ d['AnalSphincter'] = ['analsphincter','anal_sphincter']
+ d['Atrium'] = ['atrium']
+ d['Bladder'] = ['bladder']
+ d['BladderWall'] = ['bladderwall','bladder_wall']
+ d['BowelBag'] = ['bowelbag','bowel_bag','bowel']
+ d['BrachialPlexus'] = ['brachialplexus','brachial_plexus']
+ d['BrachialPlexus_Ipsi'] = ['ibp']
+ d['Brain'] = ['brain']
+ d['BrainStem'] = ['brainstem','brain_stem']
+ d['Breast'] = ['breast']
+ d['BronchialTree'] = ['bronchialtree','bronchial_tree','bronch_tree','bronchtree']
+ d['BaseOfTongue'] = ['baseoftongue','tonguebase']
+ d['Carina'] = ['carina']
+ d['CaudaEquina'] = ['caudaequina','cauda_equina']
+ d['Cerebellum'] = ['cerebellum']
+ d['Cerebrum'] = ['cerebrum']
+ d['ChestWall'] = ['chestwall','chest_wall']
+ d['Chiasm'] = ['chiasm','opticchiasm','optic_chiasm']
+ d['CN_VII'] = ['cn_vii','cnvii','7thcranialnerve','7th_cranialnerve','7_cranialnerve','7cn','cn7','cn_7']
+ d['CN_VIII'] = ['cn_viii','cnviii','8thcranialnerve','8th_cranialnerve','8_cranialnerve','8cn','cn8','cn_8']
+ d['Cervix'] = ['cervix']
+ d['Cochlea'] = ['cochlea']
+ d['Colon'] = ['colon']
+ d['ConstrMuscle'] = ['constrmuscle','constr_muscle','constrictormuscle','constrictor_muscle']
+ d['Cornea'] = ['cornea']
+ d['Duodenum'] = ['duodenum']
+ d['Ear'] = ['ear']
+ d['Ear_External'] = ['ear_external','earexternal','external_ear','externalear']
+ d['Ear_Middle'] = ['ear_middle','earmiddle','middle_ear','middleear','mid_ear','midear']
+ d['ElectronicDevice'] = ['electronicdevice','electronic_device']
+ d['Esophagus'] = ['esophagus','esoph[a-z]+us','eso[a-z]+agus']
+ d['Eye'] = ['eye']
+ d['Femur'] = ['femur','femour']
+ d['FemoralJoint'] = ['femoraljoint','femoral_joint']
+ d['FrontalLobe'] = ['frontallobe','frontal_lobe']
+ d['GHJoint'] = ['ghjoint','gh_joint','glenohumeraljoint','glenohumeral_joint']
+ d['Globe'] = ['globe','eyeglobe','eye_globe']
+ d['Glottis'] = ['glottis']
+ d['GreatVessel'] = ['greatvessel','great_vessel','greatvessels','great_vessels','gvessel','g_vessel']
+ d['Heart'] = ['heart']
+ d['Hippocampus'] = ['hippocampus']
+ d['Hypopharynx'] = ['hypopharynx']
+ d['Hypothalamus'] = ['hypothalamus']
+ d['Kidney'] = ['kidney','k[a-z]dn[a-z]y']
+ d['LargeBowel'] = ['largebowel','large_bowel','bowellarge','bowel_large','lbowel','l_bowel']
+ d['Larynx'] = ['larynx']
+ d['LacrimalGland'] = ['lacrimalgland','lacrimal_gland']
+ d['Lens'] = ['lens']
+ d['Lips'] = ['lips']
+ d['Liver'] = ['liver']
+ d['Lung'] = ['lung']
+ d['Mandible'] = ['mandible']
+ d['MassMuscle'] = ['massmuscle','mass_muscle','masseter_muscle','mass[a-z]+muscle','mass[a-z]+_muscle']
+ d['Mediastinum'] = ['mediastinum']
+ d['MainBronchus'] = ['mainbronchus','main_bronchus','m_bronchus']
+ d['OccipitalLobe'] = ['occipitallobe','occipital_lobe']
+ d['OpticNerve'] = ['opticnerve','optic_nerve','optnerve','opt_nerve']
+ d['OralCavity'] = ['oralcavity','oral_cavity']
+ d['Oropharynx'] = ['oropharynx']
+ d['Ovary'] = ['ovary']
+ d['Parametrium'] = ['parametrium']
+ d['ParietalLobe'] = ['parietallobe','parietal_lobe']
+ d['Pancreas'] = ['pancreas']
+ d['Parotid'] = ['parotid']
+ d['PelvicBones'] = ['pelvicbones','pelvic_bones','pelvis']
+ d['PenileBulb'] = ['penilebulb','penile_bulb']
+ d['Penis'] = ['penis']
+ d['Perineum'] = ['perineum']
+ d['Pericardium'] = ['pericardium']
+ d['Pharynx'] = ['pharynx']
+ d['PharynxConst'] = ['pharynxconst','pharyngealconstritor','pharyngeal_constritor']
+ d['Pituitary'] = ['pituitary']
+ d['Prostate'] = ['prostate']
+ d['PubicSymphysis'] = ['pubicsymphysis','pubic_symphysis']
+ d['Rectum'] = ['rectum']
+ d['RectalWall'] = ['rectalwall','rectal_wall']
+ d['Retina'] = ['retina']
+ d['Rib'] = ['rib']
+ d['Sacrum'] = ['sacrum']
+ d['SalivaryGland'] = ['salivarygland','salivary_gland','salivary_glands','salivary_glands']
+ d['SeminalVesicle'] = ['seminalvesicle','seminal_vesicle','seminalvesicles','seminal_vesicles','\Asv\Z']
+ d['Sigmoid'] = ['sigmoid','sigm[a-z]+d']
+ d['Skin'] = ['skin']
+ d['SmallBowel'] = ['smallbowel','small_bowel','sbowel','s_bowel','bowel_small']
+ d['SpinalCord'] = ['spinalcord','spinal_cord','scord','s_cord','cord']
+ d['SpinalCordBuffer'] = ['spinalcordbuffer','spinal_cord_buffer','cordbuffer','cord_buffer']
+ d['Spleen'] = ['spleen']
+ d['Stomach'] = ['stomach']
+ d['Submandibular'] = ['submandibular','submandibulargland','submandibular_gland']
+ d['Supraglottis'] = ['supraglottis']
+ d['Supratentorial'] = ['supratentorial','supertentorial']
+ d['TemporalLobe'] = ['temporallobe','temporal_lobe','templobe','temp_lobe']
+ d['Testis'] = ['testis']
+ d['Thyroid'] = ['thyroid']
+ d['TMjoint'] = ['tmjoint','tm_joint','temperomandibularjoint','temp[a-z]+mand[a-z]+_joint']
+ d['Trachea'] = ['trachea']
+ d['Tongue'] = ['tongue']
+ d['Urethra'] = ['urethra']
+ d['Uterus'] = ['uterus']
+ d['V_Azygos'] = ['v_azygos','vein_azygos','veinazygos','azygosvein']
+ d['V_Cava'] = ['v_cava','venacava','vena_cava']
+ d['V_Pulmonary'] = ['v_pulmonary','pulmonaryvein','pulmonary_vein']
+ d['V_SubClav'] = ['v_subclav','subclavvein','subclav_vein','subclavicularvein','subclavicular_vein']
+ d['Vagina'] = ['vagina']
+ d['VB_Cervical'] = ['vb_cervical','cervicalvertebrae']
+ d['VB_Thoracic'] = ['vb_thoracic','thoracicvertebrae']
+ d['VB_Lumbar'] = ['vb_lumbar','lumbarvertebrae']
+ d['VB_Sacrum'] = ['vb_sacrum','sacrumvertebrae']
+ d['Ventricle'] = ['ventricle']
+ d['Vessels'] = ['vessels']
+ d['Vulva'] = ['vulva']
+ return d
+##List of targets##
+def targetList():
+ """!
+ @brief:
+ @create target library in format of {standard name : [potential common names]}
+ @return:
+ :  d: the class library
+ """
+ d = dict()
+ d['CTV'] = ['ctv']
+ d['CTVn'] = ['ctvn','ctv_n','ctv_node','ctv_nodes','ctv_nodal']
+ d['CTVp'] = ['ctvp','ctv_p','ctv_primary']
+ d['GTV'] = ['gtv']
+ d['GTVn'] = ['gtvn','gtv_n','gtv_node','gtv_nodes','gtv_nodal']
+ d['GTVp'] = ['gtvp','gtv_p','gtv_primary'] 
+ d['ITV'] = ['itv']
+ d['ITVn'] = ['itvn','itv_n','itv_node','itv_nodes','itv_nodal']
+ d['ITVp'] = ['itvp','itv_p','itv_primary']
+ d['PTV'] = ['ptv']
+ d['PTVn'] = ['ptvn','ptv_n','ptv_node','ptv_nodes','ptv_nodal']
+ d['PTVp'] = ['ptvp','ptv_p','ptv_primary']
+ return d
+##List of positions ##
+def posList():
+ """!
+ @brief:
+ @create position library in format of {standard name : [potential common names]}
+ @return:
+ :  d: the class library
+ """
+ d = dict()
+ d['Ant'] = ['ant','anterior']
+ d['Contra'] = ['contra','contralateral','\Acl\Z','\Acl','cl\Z']
+ d['Dist'] = ['dist','distal','dis']
+ d['Ext'] = ['ext','exterior']
+ d['Ipsi'] = ['ipsi','ipsilateral','ips']
+ d['Inf'] = ['inf','inferior']
+ d['L'] = ['\Al\Z','\Al','l\Z','\Alt\Z','\Alt','lt\Z','left']
+ d['Lower'] = ['lower','\Alr\Z','\Alr','lr\Z']
+ d['Middle'] = ['middle','mid']
+ d['Partial'] = ['partial','part']
+ d['Post'] = ['pos','posterior','post']
+ d['Prox'] = ['prox','proximal','prx']
+ d['R'] = ['\Ar\Z','\Ar','r\Z','\Art\Z','\Art','rt\Z','right']
+ d['Sup'] = ['sup','superior']
+ d['Upper'] = ['upper','upr']
+ return d
+##List of operators##
+def opList():
+ """!
+ @brief:
+ @create operation library in format of {standard name : [potential common names]}
+ @return:
+ :  d: the class library
+ """
+ d = dict()
+ d['+'] = ['\+','and','\&']
+ d['-'] = ['\-']
+ return d

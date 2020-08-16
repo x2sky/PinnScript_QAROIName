@@ -1,0 +1,86 @@
+////////////////////////////////////
+//roisRename.Script
+//ROI rename tool to standardize Radonc names
+//Check the current list of ROI structures,
+//check to see if they match the standardize name,
+//make new naming suggestion to the non-matching structures
+//
+//Required files that are placed in Script Home:
+//roiCheck.Script
+//writeRenameWindow.py
+//roiCheck.py
+//roiChangeName.Script
+//roiChangeName.py
+//removeScriptBlank.py
+//roisRenameExit.Script
+//
+//Modified:
+//2015 08 Becket Hui
+//2015 10 Becket Hui add exit script to the end after renameWindow is dismissed
+////////////////////////////////////
+
+/*create class that stores variables necessary in this script*/
+Store.At.Roi = StringKeyDict {};
+//!!Script Home!!//
+Store.At.Roi.At.ScriptHome = SimpleString{String = "/home/ch4jm/PinnacleScripts/ROI_Standardization/";};
+///////////////////
+Store.At.Roi.At.PatientPath = SimpleString{};
+Store.At.Roi.At.PatientPath.AppendString = GetEnv.PATIENTS;
+Store.At.Roi.At.PatientPath.AppendString = "/";
+Store.At.Roi.At.PatientPath.AppendString = PatientDirectory;
+
+/*save the current roi list, DISABLED for now*/
+//create the roi file name, remove space from time stamp//
+Store.At.Roi.At.TempCommand = SimpleString{String = "python ";};
+Store.At.Roi.At.TempCommand.AppendString = Store.At.Roi.At.ScriptHome.String;
+Store.At.Roi.At.TempCommand.AppendString = "removeScriptBlank.py \"";
+Store.At.Roi.At.TempCommand.AppendString = PlanInfo.TimeStamp;
+Store.At.Roi.At.TempCommand.AppendString = "\" Store.At.Roi.At.TS ";
+Store.At.Roi.At.TempCommand.AppendString = Store.At.Roi.At.PatientPath.String;
+SpawnCommand = Store.At.Roi.At.TempCommand.String;
+Store.At.Roi.StringAt.TempCommand = Store.At.Roi.At.PatientPath.String;
+Store.At.Roi.At.TempCommand.AppendString = "removeSpace.Script";
+Script.ExecuteNow = Store.At.Roi.At.TempCommand.String;
+//save the current roi list//
+ExportFileList.Directory = Store.At.Roi.At.PatientPath.String;
+Store.At.Roi.StringAt.RoiFile = "Roi.";
+Store.At.Roi.At.RoiFile.AppendString = Store.At.Roi.At.TS.String;
+//Echo = "ROI list will be saved at:";
+//Echo = Store.At.Roi.At.RoiFile.String;
+//RoiExportFile = Store.At.Roi.At.RoiFile.String;
+//ExportRoi = "";
+
+/*start creating sub-script that create the renaming window*/
+Store.At.Roi.StringAt.TempCommand = "python ";
+Store.At.Roi.At.TempCommand.AppendString = Store.At.Roi.At.ScriptHome.String;
+Store.At.Roi.At.TempCommand.AppendString = "writeRenameWindow.py";
+Store.At.Roi.At.TempCommand.AppendString = " \"";
+Store.At.Roi.At.TempCommand.AppendString = Store.At.Roi.At.PatientPath.String;
+Store.At.Roi.At.TempCommand.AppendString = "\" \"Init123\"";
+SpawnCommand = Store.At.Roi.At.TempCommand.String;
+
+/*iteratively check the roi list*/
+Store.At.Roi.StringAt.checkROI = Store.At.Roi.At.ScriptHome.String;
+Store.At.Roi.At.checkROI.AppendString = "roiCheck.Script";
+RoiList.ChildrenEachCurrent.#"@".LoadNoCheckSum = Store.At.Roi.At.checkROI.String;
+
+/*start creating sub-script that create the renaming window*/
+Store.At.Roi.StringAt.TempCommand = "python ";
+Store.At.Roi.At.TempCommand.AppendString = Store.At.Roi.At.ScriptHome.String;
+Store.At.Roi.At.TempCommand.AppendString = "writeRenameWindow.py";
+Store.At.Roi.At.TempCommand.AppendString = " \"";
+Store.At.Roi.At.TempCommand.AppendString = Store.At.Roi.At.PatientPath.String;
+Store.At.Roi.At.TempCommand.AppendString = "\" \"CreateXYZ\"";
+SpawnCommand = Store.At.Roi.At.TempCommand.String;
+
+/*execute sub-script created by python*/
+Store.At.Roi.StringAt.TempCommand = Store.At.Roi.At.PatientPath.String;
+Store.At.Roi.At.TempCommand.AppendString = "renameWindow.Script";
+ExecuteNow = Store.At.Roi.At.TempCommand.String;
+
+/*execute exit script*/
+Store.At.Roi.StringAt.TempCommand = Store.At.Roi.At.ScriptHome.String;
+Store.At.Roi.At.TempCommand.AppendString = "roisRenameExit.Script";
+ExecuteNow = Store.At.Roi.At.TempCommand.String;
+
+Store.FreeAt.Roi = "Clear Store";

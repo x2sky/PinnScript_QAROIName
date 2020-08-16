@@ -1,0 +1,32 @@
+////////////////////////////////////
+//batchRoiCheck.Script
+//Run the python script to check the name of the
+//current ROI structure and create list/window of
+//suggested names
+//
+//Required files that are placed in Script Home:
+//batchRoiChangeName.py
+//roiCheck.py
+//
+//Modified:
+//2016 12 Becket Hui v0.0
+////////////////////////////////////
+//run python to check the current roi list//
+Store.At.Roi.StringAt.TempCommand = "python ";
+Store.At.Roi.At.TempCommand.AppendString = Store.At.Roi.At.ScriptHome.String;
+Store.At.Roi.StringAt.TempCommand = "python ";
+Store.At.Roi.At.TempCommand.AppendString = Store.At.Roi.At.ScriptHome.String;
+Store.At.Roi.At.TempCommand.AppendString = "batchRoiChangeName.py";
+Store.At.Roi.At.TempCommand.AppendString = " \"";
+Store.At.Roi.At.TempCommand.AppendString = Store.At.Roi.At.PatientPath.String;
+Store.At.Roi.At.TempCommand.AppendString = "\" \"";
+Store.At.Roi.At.TempCommand.AppendString = RoiList.Current.Name;
+Store.At.Roi.At.TempCommand.AppendString = "\"";
+SpawnCommand = Store.At.Roi.At.TempCommand.String;
+
+//execute sub-script created by python//
+Store.At.Roi.StringAt.TempCommand = Store.At.Roi.At.PatientPath.String;
+Store.At.Roi.At.TempCommand.AppendString = "changeCurrROIName.Script";
+LoadNoCheckSum = Store.At.Roi.At.TempCommand.String;
+
+//Store.FreeAt.Roi = "Clear Store"; //don't clear the roi store

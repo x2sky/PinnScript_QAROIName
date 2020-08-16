@@ -1,0 +1,40 @@
+////////////////////////////////////
+//roisRenameExit.Script
+//functions to run after exiting the rename window
+//
+//Required files that are placed in Script Home:
+//roisRename.Script
+//exportROIs.Script
+//exportROIs.py
+//
+//Modified:
+//2015 11 Becket Hui
+////////////////////////////////////
+/*clear flg for standardization warning*/
+//change the flg//
+Root.Store.At.flgStandardization.Add = 1;
+//clear dependency//
+KeyDependencyList.flgStandardization.Destroy = "";
+//clear flgstd store//
+Store.FreeAt.flgStd = "";
+
+/* not exporting names in my research mode
+//export ROI names//
+Store.At.Roi.At.SaveFolder = SimpleString{String = "/home/ch4jm/ROI_Stats/";};
+
+//export ROI names to patient file//
+Store.At.Roi.StringAt.TempCommand2 = "python ";
+Store.At.Roi.At.TempCommand2.AppendString = Store.At.Roi.At.ScriptHome.String;
+Store.At.Roi.At.TempCommand2.AppendString = "exportROIs.py ";
+Store.At.Roi.At.TempCommand2.AppendString = Store.At.Roi.At.PatientPath.String;
+Store.At.Roi.At.TempCommand2.AppendString = " ";
+Store.At.Roi.At.TempCommand2.AppendString = Store.At.Roi.At.SaveFolder.String;
+Store.At.Roi.At.TempCommand2.AppendString = " \"";
+Store.At.Roi.At.TempCommand2.AppendString = VolumeList.Current.DB_Name;
+Store.At.Roi.At.TempCommand2.AppendString = "\"";
+SpawnCommand = Store.At.Roi.At.TempCommand2.String;
+
+Store.At.Roi.StringAt.TempCommand2 = Store.At.Roi.At.PatientPath.String;
+Store.At.Roi.At.TempCommand2.AppendString = "exportROIs.Script";
+ExecuteNow = Store.At.Roi.At.TempCommand2.String;
+*/

@@ -1,0 +1,26 @@
+////////////////////////////////////
+//roiCheck.Script
+//Run the python script to check the name of the
+//current ROI structure and create list/window of
+//suggested names
+//
+//Required files that are placed in Script Home:
+//roisRename.Script
+//writeRenameWindow.py
+//roiCheck.py
+//
+//Modified:
+//2015 08 Becket Hui
+////////////////////////////////////
+/*run python to check the current roi list*/
+Store.At.Roi.StringAt.TempCommand = "python ";
+Store.At.Roi.At.TempCommand.AppendString = Store.At.Roi.At.ScriptHome.String;
+Store.At.Roi.At.TempCommand.AppendString = "writeRenameWindow.py";
+Store.At.Roi.At.TempCommand.AppendString = " \"";
+Store.At.Roi.At.TempCommand.AppendString = Store.At.Roi.At.PatientPath.String;
+Store.At.Roi.At.TempCommand.AppendString = "\" \"";
+Store.At.Roi.At.TempCommand.AppendString = RoiList.Current.Name;
+Store.At.Roi.At.TempCommand.AppendString = "\"";
+SpawnCommand = Store.At.Roi.At.TempCommand.String;
+
+//Store.FreeAt.Roi = "Clear Store"; //don't clear the roi store
